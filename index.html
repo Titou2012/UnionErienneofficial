@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a href="/" class="header-logo" title="Retour à l’accueil">
+    <img src="{{ url_for('static', filename='logo_ue.png') }}" alt="Logo Yeti" class="logo-img">
+</a>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menu hamburger (mobile) -->
+    <input type="checkbox" id="toggle-menu">
+
+    <!-- Header -->
+    <header>
+        <h1 class="logo"><span class="surligne">Yeti</span>.</h1>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/articles">Charte de l'Union Erienne</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div>
+            <button class="toggle-theme" title="Mode sombre">🌓</button>
+            <label for="toggle-menu" class="menu-hamburger" title="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </header>
+
+    <!-- Menu mobile -->
+    <div class="menu-mobile">
+        <a href="/">Accueil</a>
+        <a href="/articles">Charte de l'Union Erienne</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <main>
+        <section>
+            <h2>Bienvenue sur Yeti</h2>
+            <p>Bonjour à tous !</p>
+            <p>Bienvenue sur le site officiel de Yeti.</p>
+            <article>
+                <h3>Dernières actualités</h3>
+                <p>Découvrez la <a href="/articles">Charte de l'Union Erienne</a>.</p>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Yetilechat. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script pour le mode sombre et le menu mobile -->
+    <script>
+        // Mode sombre
+        const toggleTheme = document.querySelector('.toggle-theme');
+        toggleTheme.addEventListener('click', () => {
+            document.body.classList.toggle('mode-sombre');
+        });
+
+        // Fermer le menu mobile après clic
+        const mobileLinks = document.querySelectorAll('.menu-mobile a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('toggle-menu').checked = false;
+            });
+        });
+    </script>
+</body>
+</html>
